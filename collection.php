@@ -2,9 +2,71 @@
 
 class Collection
 {
+    public function arrangeBiggestNumber($numbers = null)
+    {
+        if($numbers == null) return '';
+
+        $result_array = [];
+        
+        foreach($numbers as $n) {
+    
+            $result_array[] = [$n];
+            
+        }
+        
+        $step = count($numbers);
+        
+        for($x = 1; $x < $step; $x++) {
+    
+            $new_array = $result_array;
+            $result_array = [];
+    
+            foreach ($new_array as $ra) {
+        
+                $array_value = [];
+        
+                foreach ($ra as $v) {
+                    $array_value[] = $v;
+                }
+        
+                $del_array = $this->delFromArray($numbers, $array_value);
+        
+                foreach ($del_array as $d) {
+            
+                    $result_array[] = array_merge($array_value, [$d]);
+                }
+            }
+        }
+    
+        $new_array = $result_array;
+        $result_array = [];
+        
+        foreach ($new_array as $na) {
+            $result_array[] = implode('', $na);
+        }
+        
+        return max($result_array);
+    }
+    
+    private function delFromArray($array, $array_value)
+    {
+        for($i = 0; $i <= count($array); $i++) {
+            if(in_array($array[$i], $array_value))
+                unset($array[$i]);
+        }
+        
+        return $array;
+    }
+    
+    
+    
+    
+    
+    
+    
     private $result = [];
 
-    public function arrangeBiggestNumber($numbers = null)
+    public function arrangeBiggestNumber2($numbers = null)
     {
         global $result;
         

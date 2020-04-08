@@ -5,6 +5,7 @@ include('collection.php');
 $collection = new Collection();
 
 $a = [1, 34, 3, 98, 9, 76, 45, 4];
+//$a = [1, 2, 3, 4, 5];
 
 $result1 = $collection->arrangeBiggestNumber($a);
 
@@ -27,7 +28,7 @@ $result3 = $collection->longestLength($s);
     <div><?= $result1; ?></div>
 
 </div>
-
+<?php /*
 <div>
     
     <div>Список диапазонов</div>
@@ -47,3 +48,4 @@ $result3 = $collection->longestLength($s);
     <div><?= $result3; ?></div>
 
 </div>
+*/ ?>
